@@ -1,8 +1,8 @@
 # Guía de lanzamiento de Matavicios con Stripe y entrega de PDF
 
-**Objetivo:** vender tres guías PDF y un pack desde la web de Matavicios, cobrar con Stripe y entregar el archivo de forma segura mediante SendOwl.
+**Objetivo:** vender tres guías PDF y un pack desde la web de Matavicios, cobrar con Stripe y entregar el archivo de forma segura mediante SendOwl. **Proveedor elegido:** Stripe Payment Links + SendOwl.
 
-Esta guía parte de una condición esencial: las páginas legales ya están diseñadas e integradas, pero no son publicables hasta sustituir todos los campos entre corchetes por datos reales y confirmar con un asesor fiscal o jurídico tu situación. La web no debe mostrar datos inventados ni mantener el aviso “Versión preparada, no publicable todavía”.
+Esta guía parte de una condición esencial: las páginas legales ya están diseñadas e integradas. El dominio `https://matavicios.com`, el correo `furrova.help@gmail.com`, el proveedor de entrega SendOwl y el hosting Manus WebDev ya están anotados. Aún faltan los datos de identidad del vendedor, necesarios para activar una cuenta de cobro y para retirar el aviso “Versión preparada, no publicable todavía”.
 
 ## 1. Cerrar los datos legales antes de abrir ventas
 

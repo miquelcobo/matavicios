@@ -66,9 +66,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .simple-course li svg { flex: 0 0 auto; margin-top: 1px; color: var(--lime); }
 .simple-card-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
 .simple-card-footer strong { color: var(--lime); font: 500 1.15rem var(--mono); letter-spacing: -.07em; }
-.simple-card-footer button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 0; border-radius: 999px; background: var(--text); color: #080a08; font-size: .71rem; font-weight: 800; cursor: pointer; transition: background .2s var(--ease), transform .17s var(--ease); }
-.simple-card-footer button:hover { background: var(--lime); }
-.simple-card-footer button:active { transform: scale(.96); }
+.simple-card-footer a { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 0; border-radius: 999px; background: var(--text); color: #080a08; font-size: .71rem; font-weight: 800; text-decoration: none; transition: background .2s var(--ease), transform .17s var(--ease); }
+.simple-card-footer a:hover { background: var(--lime); }
+.simple-card-footer a:active { transform: scale(.96); }
 .tone-warm { background: linear-gradient(150deg, #101a17 0%, var(--surface) 55%); }
 .tone-warm .course-card-top span:first-child { color: var(--sea); }
 .tone-stone { background: linear-gradient(150deg, #121513 0%, var(--surface) 55%); }
@@ -83,9 +83,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .bundle-buy { min-width: 154px; display: grid; justify-items: end; gap: 4px; text-align: right; }
 .bundle-buy > span { color: var(--text-dim); font-size: .68rem; text-decoration: line-through; }
 .bundle-buy strong { color: var(--sea); font: 500 clamp(1.7rem, 3vw, 2.15rem) var(--mono); letter-spacing: -.08em; }
-.bundle-buy button { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; padding: 10px 14px; border: 0; border-radius: 999px; color: #071411; background: var(--sea); font-size: .76rem; font-weight: 800; cursor: pointer; transition: transform .17s var(--ease), filter .17s var(--ease); }
-.bundle-buy button:hover { filter: brightness(1.08); transform: translateY(-2px); }
-.bundle-buy button:active { transform: scale(.97); }
+.bundle-buy a { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; padding: 10px 14px; border: 0; border-radius: 999px; color: #071411; background: var(--sea); font-size: .76rem; font-weight: 800; text-decoration: none; transition: transform .17s var(--ease), filter .17s var(--ease); }
+.bundle-buy a:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.bundle-buy a:active { transform: scale(.97); }
 
 .simple-footer { min-height: 145px; padding: 35px max(22px, calc((100% - 920px) / 2)); display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 25px; align-items: start; border-top: 1px solid var(--line); color: var(--text-dim); font-size: .72rem; }
 .simple-footer > div { display: inline-flex; align-items: center; gap: 5px; color: var(--text-soft); }
@@ -145,9 +145,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
   .simple-course:hover::before { opacity: 1; }
   .simple-course:hover .course-card-top span:first-child { text-shadow: 0 0 14px rgba(200,242,91,.45); }
   .simple-course:hover h3 { color: var(--lime); }
-  .simple-course:hover .simple-card-footer button { background: var(--lime); }
-  .simple-course:hover .simple-card-footer button svg { transform: translateX(2px); }
-  .simple-card-footer button svg { transition: transform .2s var(--ease); }
+  .simple-course:hover .simple-card-footer a { background: var(--lime); }
+  .simple-course:hover .simple-card-footer a svg { transform: translateX(2px); }
+  .simple-card-footer a svg { transition: transform .2s var(--ease); }
 }
 
 @media (max-width: 760px) {

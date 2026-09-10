@@ -8,13 +8,13 @@ Este documento no sustituye una revisión de un gestor, asesor fiscal o abogado.
 | Forma jurídica | “Autónomo/a” o tipo de sociedad real | Aviso legal |
 | NIF/CIF | NIF, CIF o identificador fiscal aplicable | Aviso legal y condiciones de compra |
 | Domicilio | Dirección profesional completa; consulta con un asesor si necesitas alternativas de publicidad de domicilio por motivos de privacidad | Aviso legal y condiciones de compra |
-| Correo de soporte | Un correo que revises y desde el que puedas responder incidencias | Aviso legal, condiciones y footer |
-| Correo de privacidad | Correo para solicitudes RGPD; puede ser el mismo de soporte si lo gestionas correctamente | Política de privacidad y cookies |
+| Correo de soporte | `furrova.help@gmail.com` | Aviso legal, condiciones y footer |
+| Correo de privacidad | `furrova.help@gmail.com` (se utilizará también para solicitudes RGPD) | Política de privacidad y cookies |
 | Registro público | Datos de Registro Mercantil si aplican; si no existen, usa “No procede” solo después de confirmarlo | Aviso legal y privacidad |
-| Dominio definitivo | Por ejemplo, `https://matavicios.es` | Enlaces que Stripe mostrará en checkout |
-| Proveedor de entrega | Confirmar si será SendOwl y su razón social/URL de privacidad actual, o el servicio alternativo que se use | Privacidad y condiciones |
-| Hosting | Nombre del proveedor de alojamiento final | Política de privacidad |
-| Plazo de soporte | Un compromiso realista, por ejemplo “2 días laborables” | Condiciones de compra |
+| Dominio definitivo | `https://matavicios.com` | Enlaces que Stripe mostrará en checkout |
+| Proveedor de entrega | Concept Den Ltd. (SendOwl); política de privacidad: `https://www.sendowl.com/privacy` | Privacidad y condiciones |
+| Hosting | Manus WebDev | Política de privacidad |
+| Plazo de soporte | “No se garantiza un plazo concreto; se responderá a la mayor brevedad posible.” | Condiciones de compra |
 | Política comercial de reembolsos | Si ofrecerás algo más favorable que el mínimo legal, define plazo y condiciones exactas | Condiciones de compra y Stripe Checkout |
 | Situación fiscal | Alta como autónomo o sociedad, régimen de IVA, territorio de ventas y estrategia para ventas B2C UE | Configuración de Stripe Tax y precios |
 

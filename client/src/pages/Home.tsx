@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { ArrowRight, Check, X } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Link } from "wouter";
 
 const courses = [
@@ -11,6 +10,7 @@ const courses = [
       "Para entender qué activa el cigarro en tu día y preparar un plan que puedas repetir en los momentos difíciles.",
     bullets: ["Detecta tus disparadores", "Crea una pausa antes de fumar", "Diseña apoyo y seguimiento"],
     tone: "tone-lime",
+    href: "https://buy.stripe.com/fZueVd16lbMp53Z0h61Jm00",
   },
   {
     id: "cannabis",
@@ -20,6 +20,7 @@ const courses = [
       "Para mirar tu consumo de frente, elegir un cambio realista y recuperar claridad sin dramatizarte.",
     bullets: ["Elige tu propia meta", "Prepárate para las urgencias", "Revisa lo que te funciona"],
     tone: "tone-warm",
+    href: "https://buy.stripe.com/4gMaEX6qF5o10NJ7Jy1Jm01",
   },
   {
     id: "porno",
@@ -29,8 +30,11 @@ const courses = [
       "Para entender el uso que te inquieta, cuidar tus límites y hacer cambios que tengan sentido para ti.",
     bullets: ["Observa tu patrón sin juzgarte", "Cambia el contexto", "Cuida bienestar y privacidad"],
     tone: "tone-stone",
+    href: "https://buy.stripe.com/bJe9ATg1f9Eh6839RG1Jm02",
   },
 ] as const;
+
+const packLink = "https://buy.stripe.com/dRm28raGVaIl1RNbZO1Jm03";
 
 const reflections = [
   ["Sin sermones.", "No estamos aquí para decirte quién tienes que ser. Estamos para darte una forma clara de mirar lo que te pasa."],
@@ -39,8 +43,6 @@ const reflections = [
 ] as const;
 
 export default function Home() {
-  const [selected, setSelected] = useState<{ title: string; price: string; description: string } | null>(null);
-
   return (
     <div className="simple-site" id="inicio">
       <header className="simple-nav">
@@ -58,7 +60,7 @@ export default function Home() {
           <p>
             Llevas un tiempo dándole vueltas. Matavicios no es un discurso moral ni un método milagroso. Son guías sencillas con ejercicios reales para entender tu patrón y hacer espacio antes de actuar.
           </p>
-          <p className="hero-price">Cada curso cuesta <strong>4,99 €</strong>.</p>
+          <p className="hero-price">Cada curso cuesta <strong>4,99 €</strong>. IVA incluido.</p>
           <a className="quiet-cta" href="#cursos">Ver las tres guías <ArrowRight size={16} aria-hidden="true" /></a>
           <small>Material de autoayuda para adultos. No sustituye atención profesional.</small>
         </section>
@@ -90,7 +92,7 @@ export default function Home() {
                 </ul>
                 <div className="simple-card-footer">
                   <strong>4,99 €</strong>
-                  <button type="button" onClick={() => setSelected({ title: course.title, price: "4,99 €", description: "Una guía digital de 8 módulos para avanzar a tu ritmo." })}>Elegir guía <ArrowRight size={16} aria-hidden="true" /></button>
+                  <a href={course.href}>Comprar guía <ArrowRight size={16} aria-hidden="true" /></a>
                 </div>
               </article>
             ))}
@@ -105,10 +107,10 @@ export default function Home() {
             <div className="bundle-buy">
               <span>En lugar de 14,97 €</span>
               <strong>9,99 €</strong>
-              <button type="button" onClick={() => setSelected({ title: "Pack completo", price: "9,99 €", description: "Las tres guías digitales, con 24 módulos prácticos en total." })}>Elegir el pack <ArrowRight size={16} aria-hidden="true" /></button>
+              <a href={packLink}>Comprar el pack <ArrowRight size={16} aria-hidden="true" /></a>
             </div>
           </article>
-          <p className="purchase-note">Elige una sola guía. Lee a tu ritmo. Vuelve a los ejercicios las veces que lo necesites.</p>
+          <p className="purchase-note">Pago seguro en Stripe. Precio final con IVA incluido. Recibirás tu archivo de descarga por email después de la compra.</p>
         </section>
       </main>
 
@@ -117,19 +119,6 @@ export default function Home() {
         <p>No prometemos resultados. Te ofrecemos herramientas, fuentes y una forma más clara de empezar.</p>
         <nav aria-label="Información legal"><Link href="/aviso-legal">Aviso legal</Link><Link href="/privacidad">Privacidad</Link><Link href="/condiciones-compra">Compra</Link><Link href="/cookies">Cookies</Link></nav>
       </footer>
-
-      {selected && (
-        <div className="simple-modal-backdrop" role="presentation" onMouseDown={() => setSelected(null)}>
-          <section className="simple-modal" role="dialog" aria-modal="true" aria-labelledby="selection-title" onMouseDown={(event) => event.stopPropagation()}>
-            <button className="modal-x" type="button" onClick={() => setSelected(null)} aria-label="Cerrar"><X size={18} /></button>
-            <p className="micro-label">HAS ELEGIDO</p>
-            <h2 id="selection-title">{selected.title}</h2>
-            <p>{selected.description} Precio: <strong>{selected.price}</strong>. El espacio está preparado para conectar un método de pago seguro antes de publicar.</p>
-            <p className="modal-honesty">No simulamos una compra mientras el checkout no esté configurado.</p>
-            <button className="modal-action" type="button" onClick={() => setSelected(null)}>Entendido</button>
-          </section>
-        </div>
-      )}
     </div>
   );
 }
