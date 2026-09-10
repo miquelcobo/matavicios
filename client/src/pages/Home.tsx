@@ -38,7 +38,7 @@ const reflections = [
 ] as const;
 
 export default function Home() {
-  const [selected, setSelected] = useState<(typeof courses)[number] | null>(null);
+  const [selected, setSelected] = useState<{ title: string; price: string; description: string } | null>(null);
 
   return (
     <div className="simple-site" id="inicio">
@@ -89,11 +89,24 @@ export default function Home() {
                 </ul>
                 <div className="simple-card-footer">
                   <strong>4,99 €</strong>
-                  <button type="button" onClick={() => setSelected(course)}>Elegir guía <ArrowRight size={16} aria-hidden="true" /></button>
+                  <button type="button" onClick={() => setSelected({ title: course.title, price: "4,99 €", description: "Una guía digital de 8 módulos para avanzar a tu ritmo." })}>Elegir guía <ArrowRight size={16} aria-hidden="true" /></button>
                 </div>
               </article>
             ))}
           </div>
+          <article className="bundle-card">
+            <div className="bundle-copy">
+              <p className="micro-label">PACK COMPLETO · 3 GUÍAS</p>
+              <h3>Las tres guías, para mirarlo todo con más perspectiva.</h3>
+              <p>Tabaco, cannabis y uso de pornografía que te preocupa. Un mismo enfoque: observar, crear una pausa y elegir un siguiente paso posible.</p>
+              <div className="bundle-details"><span><Check size={15} aria-hidden="true" />24 módulos en total</span><span><Check size={15} aria-hidden="true" />Ahorra 4,98 €</span></div>
+            </div>
+            <div className="bundle-buy">
+              <span>En lugar de 14,97 €</span>
+              <strong>9,99 €</strong>
+              <button type="button" onClick={() => setSelected({ title: "Pack completo", price: "9,99 €", description: "Las tres guías digitales, con 24 módulos prácticos en total." })}>Elegir el pack <ArrowRight size={16} aria-hidden="true" /></button>
+            </div>
+          </article>
           <p className="purchase-note">Elige una sola guía. Lee a tu ritmo. Vuelve a los ejercicios las veces que lo necesites.</p>
         </section>
       </main>
@@ -110,7 +123,7 @@ export default function Home() {
             <button className="modal-x" type="button" onClick={() => setSelected(null)} aria-label="Cerrar"><X size={18} /></button>
             <p className="micro-label">HAS ELEGIDO</p>
             <h2 id="selection-title">{selected.title}</h2>
-            <p>Esta guía cuesta <strong>4,99 €</strong>. El espacio está preparado para conectar un método de pago seguro antes de publicar.</p>
+            <p>{selected.description} Precio: <strong>{selected.price}</strong>. El espacio está preparado para conectar un método de pago seguro antes de publicar.</p>
             <p className="modal-honesty">No simulamos una compra mientras el checkout no esté configurado.</p>
             <button className="modal-action" type="button" onClick={() => setSelected(null)}>Entendido</button>
           </section>

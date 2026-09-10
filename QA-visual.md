@@ -1,10 +1,10 @@
-# Verificación visual — Rediseño simplificado de Matavicios
+# Verificación visual — Pack, legibilidad e interacción
 
 **Fecha:** 10 de septiembre de 2026  
 **Vistas comprobadas:** landing completa en 1440 × 1000 px y 390 × 844 px.
 
-La página se ha reducido a cuatro piezas: una navegación fija mínima, un hero breve, tres reflexiones de enfoque y las tres tarjetas de compra. En escritorio, la jerarquía se lee de inmediato y las tarjetas son el único foco de conversión. El negro, el lima y las superficies oscuras se mantienen; la tipografía, las frases y el ámbar puntual hacen el resultado más cercano sin perder coherencia con los cursos.
+La tarjeta de pack aparece justo después de las tres guías individuales. Mantiene el patrón visual de las tarjetas, usa un acento verde agua diferenciado del lima principal y explica de forma visible el precio anterior de 14,97 €, el nuevo precio de 9,99 €, el ahorro de 4,98 € y el contenido de 24 módulos. En escritorio mantiene el resumen y la compra alineados; en móvil pasa a una columna sin desbordamientos.
 
-En móvil, la página conserva una sola columna, no presenta desbordamientos visibles y mantiene una jerarquía clara: mensaje, tres notas breves y cursos. El precio de 4,99 € se muestra de forma directa en cada tarjeta y los controles de selección permanecen utilizables.
+La tipografía se ha cambiado a DM Sans en toda la interfaz. Se han aumentado los tamaños y el contraste del texto de lectura, descripciones y listas. El amarillo cálido se ha sustituido por verde agua suave en la tarjeta de cannabis y el pack. En dispositivos con cursor, las tarjetas elevan ligeramente su posición, muestran un halo lima muy sutil, aclaran el título y desplazan mínimamente el icono del botón; el efecto está desactivado en interfaces táctiles y con preferencia por reducción de movimiento.
 
-No se observan fallos visuales críticos. Los botones siguen mostrando un modal transparente de preparación de checkout, por lo que no se simula una compra hasta configurar un método de pago real.
+No se observan fallos visuales críticos. La interacción de selección sigue mostrando un modal transparente en lugar de simular un cobro.

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,16 +7,16 @@
   --surface: #0d100e;
   --surface-raised: #131713;
   --text: #f1f3ed;
-  --text-soft: #b8c0b4;
-  --text-dim: #777f76;
+  --text-soft: #cbd3c7;
+  --text-dim: #98a198;
   --lime: #c8f25b;
   --lime-ink: #192200;
-  --warm: #e8bf78;
+  --sea: #93cfbd;
   --line: rgba(255,255,255,.09);
   --line-bright: rgba(200,242,91,.38);
   --radius: 24px;
   --ease: cubic-bezier(.16,1,.3,1);
-  --font: "Manrope", sans-serif;
+  --font: "DM Sans", sans-serif;
   --mono: "DM Mono", monospace;
 }
 
@@ -32,14 +32,14 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .simple-brand { display: inline-flex; align-items: center; gap: 7px; color: var(--text); font-size: 1.04rem; font-weight: 800; letter-spacing: -.05em; text-decoration: none; }
 .simple-brand > span:last-child { color: var(--lime); }
 .brand-mark { display: inline-grid; place-items: center; width: 21px; height: 21px; border: 2px solid var(--lime); border-radius: 50%; color: var(--lime); font-size: 12px; font-weight: 800; line-height: 1; }
-.simple-nav > a:last-child { color: var(--text-soft); font-size: .75rem; text-decoration: none; transition: color .18s var(--ease); }
+.simple-nav > a:last-child { color: var(--text-soft); font-size: .79rem; text-decoration: none; transition: color .18s var(--ease); }
 .simple-nav > a:last-child:hover { color: var(--lime); }
 
 .simple-hero { width: min(100% - 44px, 760px); margin: 0 auto; padding: clamp(132px, 16vw, 178px) 0 clamp(58px, 8vw, 85px); text-align: center; }
 .micro-label { margin: 0 0 16px; color: var(--lime); font: 500 .66rem var(--mono); letter-spacing: .12em; }
 .simple-hero h1 { max-width: 720px; margin: 0 auto 20px; font-size: clamp(3rem, 7.2vw, 5.35rem); line-height: 1; letter-spacing: -.075em; font-weight: 800; }
-.simple-hero > p:not(.hero-price) { max-width: 620px; margin: 0 auto; color: var(--text-soft); font-size: clamp(1rem, 2vw, 1.13rem); line-height: 1.68; }
-.hero-price { margin: 18px 0 0; color: var(--text-dim); font-size: .9rem; }
+.simple-hero > p:not(.hero-price) { max-width: 620px; margin: 0 auto; color: var(--text-soft); font-size: clamp(1.05rem, 2vw, 1.18rem); line-height: 1.7; }
+.hero-price { margin: 18px 0 0; color: var(--text-dim); font-size: .95rem; }
 .hero-price strong { color: var(--text); }
 .quiet-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 27px; padding: 12px 18px; border: 1px solid var(--line-bright); border-radius: 999px; color: var(--lime); font-size: .83rem; font-weight: 700; text-decoration: none; transition: background .2s var(--ease), transform .2s var(--ease); }
 .quiet-cta:hover { transform: translateY(-2px); background: rgba(200,242,91,.08); }
@@ -49,30 +49,43 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .reflection-card { min-height: 168px; padding: 25px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); transition: border-color .2s var(--ease), transform .22s var(--ease); }
 .reflection-card:hover { transform: translateY(-3px); border-color: rgba(200,242,91,.42); }
 .reflection-card h2 { margin: 0 0 10px; font-size: 1.03rem; letter-spacing: -.04em; }
-.reflection-card p { margin: 0; color: var(--text-soft); font-size: .79rem; line-height: 1.6; }
+.reflection-card p { margin: 0; color: var(--text-soft); font-size: .88rem; line-height: 1.62; }
 
 .courses-wrap { width: min(100% - 44px, 920px); margin: 0 auto; padding-bottom: clamp(82px, 10vw, 115px); }
 .courses-heading { padding: 0 0 27px; }
 .courses-heading h2 { max-width: 580px; margin: 0; font-size: clamp(2rem, 5vw, 3.7rem); line-height: 1.02; letter-spacing: -.07em; }
 .simple-course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.simple-course { min-height: 438px; padding: 24px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease); }
-.simple-course:hover { transform: translateY(-5px); border-color: var(--line-bright); box-shadow: 0 25px 60px rgba(0,0,0,.26); }
+.simple-course { position: relative; min-height: 438px; padding: 24px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); will-change: transform; transition: transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease), background .28s var(--ease); }
+.simple-course::before { position: absolute; inset: 0; content: ""; opacity: 0; background: radial-gradient(circle at 88% 10%, rgba(200,242,91,.14), transparent 34%); pointer-events: none; transition: opacity .28s var(--ease); }
 .course-card-top { display: flex; justify-content: space-between; color: var(--text-dim); font: 500 .62rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
 .course-card-top span:first-child { color: var(--lime); }
 .simple-course h3 { margin: 53px 0 15px; font-size: clamp(1.52rem, 2.5vw, 2rem); line-height: 1.04; letter-spacing: -.06em; }
-.course-copy { min-height: 94px; margin: 0 0 19px; color: var(--text-soft); font-size: .81rem; line-height: 1.58; }
+.course-copy { min-height: 94px; margin: 0 0 19px; color: var(--text-soft); font-size: .89rem; line-height: 1.62; }
 .simple-course ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.simple-course li { display: flex; align-items: flex-start; gap: 8px; color: var(--text-soft); font-size: .74rem; line-height: 1.48; }
+.simple-course li { display: flex; align-items: flex-start; gap: 8px; color: var(--text-soft); font-size: .81rem; line-height: 1.48; }
 .simple-course li svg { flex: 0 0 auto; margin-top: 1px; color: var(--lime); }
 .simple-card-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); }
 .simple-card-footer strong { color: var(--lime); font: 500 1.15rem var(--mono); letter-spacing: -.07em; }
 .simple-card-footer button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 0; border-radius: 999px; background: var(--text); color: #080a08; font-size: .71rem; font-weight: 800; cursor: pointer; transition: background .2s var(--ease), transform .17s var(--ease); }
 .simple-card-footer button:hover { background: var(--lime); }
 .simple-card-footer button:active { transform: scale(.96); }
-.tone-warm { background: linear-gradient(150deg, #171511 0%, var(--surface) 55%); }
-.tone-warm .course-card-top span:first-child { color: var(--warm); }
+.tone-warm { background: linear-gradient(150deg, #101a17 0%, var(--surface) 55%); }
+.tone-warm .course-card-top span:first-child { color: var(--sea); }
 .tone-stone { background: linear-gradient(150deg, #121513 0%, var(--surface) 55%); }
 .purchase-note { margin: 16px 0 0; color: var(--text-dim); font-size: .72rem; }
+
+.bundle-card { margin-top: 15px; padding: clamp(24px, 4vw, 36px); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 36px; align-items: center; border: 1px solid rgba(147,207,189,.38); border-radius: var(--radius); background: linear-gradient(112deg, rgba(147,207,189,.12), rgba(7,9,8,.18) 58%), var(--surface); }
+.bundle-copy h3 { max-width: 650px; margin: 0 0 10px; font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.06; letter-spacing: -.055em; }
+.bundle-copy > p:not(.micro-label) { max-width: 665px; margin: 0; color: var(--text-soft); font-size: .92rem; line-height: 1.6; }
+.bundle-details { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 17px; color: var(--text-soft); font-size: .78rem; }
+.bundle-details span { display: inline-flex; align-items: center; gap: 6px; }
+.bundle-details svg { color: var(--sea); }
+.bundle-buy { min-width: 154px; display: grid; justify-items: end; gap: 4px; text-align: right; }
+.bundle-buy > span { color: var(--text-dim); font-size: .68rem; text-decoration: line-through; }
+.bundle-buy strong { color: var(--sea); font: 500 clamp(1.7rem, 3vw, 2.15rem) var(--mono); letter-spacing: -.08em; }
+.bundle-buy button { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; padding: 10px 14px; border: 0; border-radius: 999px; color: #071411; background: var(--sea); font-size: .76rem; font-weight: 800; cursor: pointer; transition: transform .17s var(--ease), filter .17s var(--ease); }
+.bundle-buy button:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.bundle-buy button:active { transform: scale(.97); }
 
 .simple-footer { min-height: 145px; padding: 35px max(22px, calc((100% - 920px) / 2)); display: grid; grid-template-columns: 1fr 1.4fr auto; gap: 25px; align-items: start; border-top: 1px solid var(--line); color: var(--text-dim); font-size: .72rem; }
 .simple-footer > div { display: inline-flex; align-items: center; gap: 5px; color: var(--text-soft); }
@@ -89,11 +102,23 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--lime); outline-
 .modal-x { position: absolute; top: 15px; right: 15px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--text); background: transparent; cursor: pointer; }
 .modal-action { margin-top: 8px; padding: 11px 17px; border: 0; border-radius: 999px; color: var(--lime-ink); background: var(--lime); font-size: .78rem; font-weight: 800; cursor: pointer; }
 
+@media (hover: hover) and (pointer: fine) {
+  .simple-course:hover { transform: translateY(-7px); border-color: var(--line-bright); background: #141a14; box-shadow: 0 25px 60px rgba(0,0,0,.31); }
+  .simple-course:hover::before { opacity: 1; }
+  .simple-course:hover .course-card-top span:first-child { text-shadow: 0 0 14px rgba(200,242,91,.45); }
+  .simple-course:hover h3 { color: var(--lime); }
+  .simple-course:hover .simple-card-footer button { background: var(--lime); }
+  .simple-course:hover .simple-card-footer button svg { transform: translateX(2px); }
+  .simple-card-footer button svg { transition: transform .2s var(--ease); }
+}
+
 @media (max-width: 760px) {
   .reflection-grid, .simple-course-grid { grid-template-columns: 1fr; }
   .reflection-card { min-height: auto; }
   .simple-course { min-height: 390px; }
   .course-copy { min-height: auto; }
+  .bundle-card { grid-template-columns: 1fr; gap: 25px; }
+  .bundle-buy { justify-items: start; text-align: left; }
   .simple-footer { grid-template-columns: 1fr; gap: 13px; padding: 31px 22px 40px; }
 }
 
