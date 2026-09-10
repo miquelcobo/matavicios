@@ -17,10 +17,10 @@ export default defineComponent({
     }
 
     const products = {
-      plink_1UE7lFDjPyCcLTbcJX8jy3CP: ["Tu guía Matavicios — Deja el tabaco", "Deja el tabaco", "https://matavicios.com/manus-storage/Matavicios-Deja-el-Tabaco_74e3959b.pdf"],
-      plink_1UE7nZDjPyCcLTbcT3WYUe1y: ["Tu guía Matavicios — Cambiar tu relación con el cannabis", "Cambiar tu relación con el cannabis", "https://matavicios.com/manus-storage/Matavicios-Cannabis_a3066e0d.pdf"],
-      plink_1UE7pdDjPyCcLTbcjp4sPePZ: ["Tu guía Matavicios — Uso de pornografía que te preocupa", "Uso de pornografía que te preocupa", "https://matavicios.com/manus-storage/Matavicios-Uso-de-Pornografia_1fc1118f.pdf"],
-      plink_1UE7riDjPyCcLTbcFUc1EP29: ["Tu pack completo Matavicios", "Pack completo", "https://matavicios.com/manus-storage/Matavicios-Pack-Completo_3a99e673.zip"],
+      plink_1UE7lFDjPyCcLTbcJX8jy3CP: ["Tu guía Matavicios — Deja el tabaco", "Deja el tabaco", "https://matavicios.com/downloads/Matavicios-Deja-el-Tabaco.pdf"],
+      plink_1UE7nZDjPyCcLTbcT3WYUe1y: ["Tu guía Matavicios — Cambiar tu relación con el cannabis", "Cambiar tu relación con el cannabis", "https://matavicios.com/downloads/Matavicios-Cannabis.pdf"],
+      plink_1UE7pdDjPyCcLTbcjp4sPePZ: ["Tu guía Matavicios — Uso de pornografía que te preocupa", "Uso de pornografía que te preocupa", "https://matavicios.com/downloads/Matavicios-Uso-de-Pornografia.pdf"],
+      plink_1UE7riDjPyCcLTbcFUc1EP29: ["Tu pack completo Matavicios", "Pack completo", "https://matavicios.com/downloads/Matavicios-Pack-Completo.zip"],
     };
 
     const product = products[session.payment_link];
