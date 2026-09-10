@@ -15,20 +15,16 @@ La cuenta activa de Stripe está verificada y los cuatro Payment Links se han cr
 
 ## Web y archivos
 
-Los cuatro botones de compra de la landing enlazan a los Payment Links. Los PDFs y el pack ZIP están disponibles en las rutas del almacenamiento web preparadas para `https://matavicios.com/manus-storage/`.
+La landing está respaldada en el checkpoint `311acab3`, con los cuatro botones de compra, recursos de descarga y textos legales. Los PDFs y el pack ZIP están en las rutas del almacenamiento web preparadas para `https://matavicios.com/manus-storage/`.
 
-## Pipedream: entrega automática
+## Automatización n8n Cloud
 
-Proyecto: **MATAVICIOS — ENTREGAS**  
-Flujo en borrador: **Entrega automática — Tabaco**  
-Endpoint: `https://eoaghepl89fyl7c.m.pipedream.net`
-
-La cuenta **furrova.help@gmail.com** continúa conectada. String sigue mostrando una corrección en curso; la versión generada inicialmente es incorrecta y no será desplegada. Se abrirá directamente el editor del flujo para comprobar cuál es el código persistido y reemplazarlo por una versión mínima, sin secretos ni llamadas externas.
+La prueba de n8n Cloud está verificada y activa, sin contratación ni cobro. El selector muestra el disparador nativo **Stripe — Handle Stripe events via webhooks**, que será el primer nodo del flujo. El flujo sigue sin credenciales, sin activación y sin conexiones con clientes.
 
 ## Secuencia restante antes del lanzamiento
 
-1. Confirmar y guardar el código correcto.
-2. Revisar y probar el envío de Gmail.
-3. Conectar Stripe al endpoint con `checkout.session.completed`.
-4. Publicar la web y conectar `matavicios.com`.
-5. Probar una compra y desplegar solo si la entrega funciona.
+1. Añadir y revisar los tres nodos del flujo de prueba.
+2. Conectar Stripe y Gmail dentro de n8n; probar entregas.
+3. Configurar el dominio `matavicios.com` para la landing publicada.
+4. Comprobar los cuatro enlaces de descarga bajo el dominio definitivo.
+5. Ejecutar una compra real de prueba y decidir después si se contrata n8n Starter.
