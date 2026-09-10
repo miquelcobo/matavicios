@@ -10,7 +10,7 @@ const courses = [
       "Para entender qué activa el cigarro en tu día y preparar un plan que puedas repetir en los momentos difíciles.",
     bullets: ["Detecta tus disparadores", "Crea una pausa antes de fumar", "Diseña apoyo y seguimiento"],
     tone: "tone-lime",
-    href: "https://buy.stripe.com/fZueVd16lbMp53Z0h61Jm00",
+    href: "https://payhip.com/buy?s=1&cart_links%5B%5D=3UWEh&qty%5B3UWEh%5D=1",
   },
   {
     id: "cannabis",
@@ -20,7 +20,7 @@ const courses = [
       "Para mirar tu consumo de frente, elegir un cambio realista y recuperar claridad sin dramatizarte.",
     bullets: ["Elige tu propia meta", "Prepárate para las urgencias", "Revisa lo que te funciona"],
     tone: "tone-warm",
-    href: "https://buy.stripe.com/4gMaEX6qF5o10NJ7Jy1Jm01",
+    href: "https://payhip.com/buy?s=1&cart_links%5B%5D=DhCXS&qty%5BDhCXS%5D=1",
   },
   {
     id: "porno",
@@ -30,11 +30,11 @@ const courses = [
       "Para entender el uso que te inquieta, cuidar tus límites y hacer cambios que tengan sentido para ti.",
     bullets: ["Observa tu patrón sin juzgarte", "Cambia el contexto", "Cuida bienestar y privacidad"],
     tone: "tone-stone",
-    href: "https://buy.stripe.com/bJe9ATg1f9Eh6839RG1Jm02",
+    href: "https://payhip.com/buy?s=1&cart_links%5B%5D=3Q6Mf&qty%5B3Q6Mf%5D=1",
   },
 ] as const;
 
-const packLink = "https://buy.stripe.com/dRm28raGVaIl1RNbZO1Jm03";
+const packLink = "https://payhip.com/buy?s=1&cart_links%5B%5D=meQfk&qty%5BmeQfk%5D=1";
 
 const reflections = [
   ["Sin sermones.", "No estamos aquí para decirte quién tienes que ser. Estamos para darte una forma clara de mirar lo que te pasa."],
@@ -110,7 +110,7 @@ export default function Home() {
               <a href={packLink}>Comprar el pack <ArrowRight size={16} aria-hidden="true" /></a>
             </div>
           </article>
-          <p className="purchase-note">Pago seguro en Stripe. Precio final con IVA incluido. Recibirás tu archivo de descarga por email después de la compra.</p>
+          <p className="purchase-note">Pago seguro con Stripe a través de Payhip. Precio final con IVA incluido. Recibirás un correo con acceso a la descarga; cada archivo queda limitado a un intento y se sella con tu correo.</p>
         </section>
       </main>
 

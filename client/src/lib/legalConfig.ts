@@ -18,15 +18,15 @@ export const legalConfig = {
     domain: "https://matavicios.com",
   },
   delivery: {
-    paymentProvider: "Stripe Payments Europe, Limited / Stripe, Inc., según la configuración aplicable.",
-    fileProvider: "Concept Den Ltd. (SendOwl), proveedor de entrega digital. Política de privacidad: https://www.sendowl.com/privacy.",
-    hostingProvider: "Manus WebDev.",
+    paymentProvider: "Payhip Ltd. y Stripe Payments Europe, Limited / Stripe, Inc., según la configuración aplicable.",
+    fileProvider: "Payhip Ltd., proveedor de checkout y entrega digital. Política de privacidad: https://payhip.com/privacy.",
+    hostingProvider: "GitHub Pages.",
     supportResponse: "No se garantiza un plazo concreto; se responderá a la mayor brevedad posible.",
   },
   prices: {
     individual: "4,99 €",
     bundle: "9,99 €",
-    taxNotice: "Los precios mostrados incluyen los impuestos indirectos aplicables. El importe final y cualquier impuesto desglosado se confirmarán antes del pago en Stripe Checkout.",
+    taxNotice: "Los precios mostrados incluyen los impuestos indirectos aplicables. El importe final y cualquier impuesto desglosado se confirmarán antes del pago en el checkout de Payhip.",
   },
 } as const;
 
