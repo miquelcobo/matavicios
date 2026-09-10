@@ -1,0 +1,55 @@
+{
+  "name": "Entregas Matavicios — ACTIVO",
+  "nodes": [
+    {
+      "parameters": {
+        "events": ["checkout.session.completed"]
+      },
+      "type": "n8n-nodes-base.stripeTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "id": "99862e9f-3928-4cbf-99ba-dbb7f633d2a9",
+      "name": "Stripe Trigger",
+      "webhookId": "a2abf5a1-5cf4-4bd2-b72f-5957edc96d9f",
+      "credentials": {
+        "stripeApi": { "id": "N73z0ney2Ogr47Gd", "name": "Stripe account" }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const event = $input.first().json;\nconst session = event.data?.object ?? event;\n\nif (event.type && event.type !== 'checkout.session.completed') return [];\nif (session.payment_status && session.payment_status !== 'paid') return [];\n\nconst recipient = session.customer_details?.email || session.customer_email;\nconst paymentLink = session.payment_link;\nif (!recipient) throw new Error('Stripe no proporcionó el correo del cliente.');\n\nconst products = {\n  'plink_1UE7lFDjPyCcLTbcJX8jy3CP': { subject: 'Tu guía Matavicios — Deja el tabaco', title: 'Deja el tabaco', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Deja-el-Tabaco.pdf' },\n  'plink_1UE7nZDjPyCcLTbcT3WYUe1y': { subject: 'Tu guía Matavicios — Cambiar tu relación con el cannabis', title: 'Cambiar tu relación con el cannabis', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Cannabis.pdf' },\n  'plink_1UE7pdDjPyCcLTbcjp4sPePZ': { subject: 'Tu guía Matavicios — Uso de pornografía que te preocupa', title: 'Uso de pornografía que te preocupa', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Uso-de-Pornografia.pdf' },\n  'plink_1UE7riDjPyCcLTbcFUc1EP29': { subject: 'Tu pack completo Matavicios', title: 'Pack completo', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Pack-Completo.zip' }\n};\n\nconst product = products[paymentLink];\nif (!product) throw new Error(`Enlace de pago no reconocido: ${paymentLink || 'vacío'}`);\n\nconst html = `<div style=\"font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#2c2927;line-height:1.6\"><h1 style=\"font-size:24px;margin-bottom:16px\">Gracias por tu compra</h1><p>Hola,</p><p>Tu guía <strong>${product.title}</strong> ya está lista.</p><p style=\"margin:28px 0\"><a href=\"${product.downloadUrl}\" style=\"display:inline-block;background:#6f7e67;color:#ffffff;padding:13px 20px;border-radius:6px;text-decoration:none;font-weight:700\">Descargar mi guía</a></p><p>Guárdala en un lugar que encuentres fácilmente. Puedes volver a este correo cuando la necesites.</p><p>Un abrazo,<br>Matavicios</p></div>`;\n\nreturn [{ json: { recipient, subject: product.subject, html, productTitle: product.title, downloadUrl: product.downloadUrl, paymentLink, sessionId: session.id } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [320, 0],
+      "id": "88d35c41-0e7b-4762-8f70-9f6d2f73ff65",
+      "name": "Preparar entrega"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$json.recipient}}",
+        "subject": "={{$json.subject}}",
+        "message": "={{$json.html}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [640, 0],
+      "id": "a3518207-12b4-4f34-bd49-c48295d57560",
+      "name": "Enviar guía por Gmail",
+      "credentials": {
+        "gmailOAuth2": { "id": "dkyzuabTHwphbzqd", "name": "Gmail account 2" }
+      }
+    }
+  ],
+  "connections": {
+    "Stripe Trigger": {
+      "main": [[{ "node": "Preparar entrega", "type": "main", "index": 0 }]]
+    },
+    "Preparar entrega": {
+      "main": [[{ "node": "Enviar guía por Gmail", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1", "binaryMode": "separate" },
+  "pinData": {}
+}
