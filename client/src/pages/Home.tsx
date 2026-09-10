@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Check, X } from "lucide-react";
+import { Link } from "wouter";
 
 const courses = [
   {
@@ -114,7 +115,7 @@ export default function Home() {
       <footer className="simple-footer">
         <div><span className="brand-mark" aria-hidden="true">×</span><strong> Matavicios</strong> · Guías digitales de autoayuda.</div>
         <p>No prometemos resultados. Te ofrecemos herramientas, fuentes y una forma más clara de empezar.</p>
-        <a href="#inicio">Volver arriba ↑</a>
+        <nav aria-label="Información legal"><Link href="/aviso-legal">Aviso legal</Link><Link href="/privacidad">Privacidad</Link><Link href="/condiciones-compra">Compra</Link><Link href="/cookies">Cookies</Link></nav>
       </footer>
 
       {selected && (
