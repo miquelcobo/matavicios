@@ -1,10 +1,10 @@
-# Verificación visual — Matavicios landing
+# Verificación visual — Rediseño simplificado de Matavicios
 
 **Fecha:** 10 de septiembre de 2026  
 **Vistas comprobadas:** landing completa en 1440 × 1000 px y 390 × 844 px.
 
-La versión de escritorio conserva una jerarquía clara: el titular y el CTA mantienen contraste sobre la textura oscura, las tres tarjetas presentan precio y alcance de manera consistente, y las secciones de proceso, transparencia, preguntas frecuentes y cierre se distinguen con ritmo editorial suficiente. La textura de portada queda contenida en el lado derecho y no compromete la legibilidad del texto.
+La página se ha reducido a cuatro piezas: una navegación fija mínima, un hero breve, tres reflexiones de enfoque y las tres tarjetas de compra. En escritorio, la jerarquía se lee de inmediato y las tarjetas son el único foco de conversión. El negro, el lima y las superficies oscuras se mantienen; la tipografía, las frases y el ámbar puntual hacen el resultado más cercano sin perder coherencia con los cursos.
 
-La versión móvil presenta una sola columna sin desbordamientos visibles. La navegación se simplifica, las tarjetas se apilan, el CTA principal sigue visible y el bloque de transparencia permanece legible. Los botones y enlaces conservan un tamaño usable y el precio se muestra en cada curso.
+En móvil, la página conserva una sola columna, no presenta desbordamientos visibles y mantiene una jerarquía clara: mensaje, tres notas breves y cursos. El precio de 4,99 € se muestra de forma directa en cada tarjeta y los controles de selección permanecen utilizables.
 
-No se han observado fallos visuales críticos. La revisión está limitada a la landing estática; los botones de selección muestran intencionadamente un modal transparente de preparación de checkout y no procesan pagos hasta que se conecte un proveedor de pago real.
+No se observan fallos visuales críticos. Los botones siguen mostrando un modal transparente de preparación de checkout, por lo que no se simula una compra hasta configurar un método de pago real.
