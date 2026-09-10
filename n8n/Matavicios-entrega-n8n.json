@@ -1,0 +1,91 @@
+{
+  "name": "Entregas Matavicios — Stripe a Gmail",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "checkout.session.completed"
+        ]
+      },
+      "type": "n8n-nodes-base.stripeTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "18de94af-5ff9-459d-8921-f9f8a77b8b85",
+      "name": "Stripe Trigger",
+      "webhookId": "f9046aee-eb1d-4081-bed7-6487c076a0bb",
+      "credentials": {
+        "stripeApi": {
+          "id": "N73z0ney2Ogr47Gd",
+          "name": "Stripe account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const event = $input.first().json;\nconst session = event.data?.object ?? event;\n\nif (event.type && event.type !== 'checkout.session.completed') return [];\nif (session.payment_status && session.payment_status !== 'paid') return [];\n\nconst recipient = session.customer_details?.email || session.customer_email;\nconst paymentLink = session.payment_link;\nif (!recipient) throw new Error('Stripe no proporcionó el correo del cliente.');\n\nconst products = {\n  'plink_1UE7lFDjPyCcLTbcJX8jy3CP': { subject: 'Tu guía Matavicios — Deja el tabaco', title: 'Deja el tabaco', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Deja-el-Tabaco.pdf' },\n  'plink_1UE7nZDjPyCcLTbcT3WYUe1y': { subject: 'Tu guía Matavicios — Cambiar tu relación con el cannabis', title: 'Cambiar tu relación con el cannabis', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Cannabis.pdf' },\n  'plink_1UE7pdDjPyCcLTbcjp4sPePZ': { subject: 'Tu guía Matavicios — Uso de pornografía que te preocupa', title: 'Uso de pornografía que te preocupa', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Uso-de-Pornografia.pdf' },\n  'plink_1UE7riDjPyCcLTbcFUc1EP29': { subject: 'Tu pack completo Matavicios', title: 'Pack completo', downloadUrl: 'https://matavicios.com/downloads/Matavicios-Pack-Completo.zip' }\n};\n\nconst product = products[paymentLink];\nif (!product) throw new Error(`Enlace de pago no reconocido: ${paymentLink || 'vacío'}`);\n\nconst html = `<p>Gracias por tu compra.</p><p>Tu guía <strong>${product.title}</strong> ya está lista.</p><p><a href=\"${product.downloadUrl}\">Descargar mi guía</a></p><p>Un abrazo,<br>Matavicios</p>`;\n\nreturn [{ json: { recipient, subject: product.subject, html, productTitle: product.title, downloadUrl: product.downloadUrl, paymentLink, sessionId: session.id } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "3c7ccfd9-285f-4a6e-b3dc-0c19428f96db",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{$json.recipient}}",
+        "subject": "={{$json.subject}}",
+        "message": "={{$json.html}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        640,
+        0
+      ],
+      "id": "5a155de8-05bf-4481-a305-52128c4f7710",
+      "name": "Send a message",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "dkyzuabTHwphbzqd",
+          "name": "Gmail account 2"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Stripe Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "pinData": {}
+}
